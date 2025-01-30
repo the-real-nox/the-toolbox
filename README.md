@@ -3,6 +3,6 @@ A web-app that can while being self-hosted provide an interface with tools you m
 
 ## Topics
 - [Structure](wiki/structure.md)
-- [Auth](wiki/ABEA/README.md.md)
+- [Auth](wiki/ABEA/README.md)
 - [Databases / Storage]()
 - [Plugin-ecosystem]()
