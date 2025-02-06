@@ -1,12 +1,11 @@
-# ABEA
-- **A**mature
-- **B**est
-- **E**ffort
-- **A**uthentication
+# Recs 🦖
+- **R**igerouse
+- **e**xtensive
+- **c**ffort
+- **s**ecurity-first
 
 ⚠️**Warning**⚠️  
-Since I'm not a cybersecurity expert, I'm in no means qualified enough to
-build something like that for a production environment. Use it at your own risk (like I do).
+Since I'm not a cybersecurity expert (but my education goes into the right direction). I won't guarantee anything, but for me security and privacy have always been big concerns. I also want something that is not solely dependent on big tech companies, since the usage of Firebase would abstract my learning and decentralize it (I don't want to take the power over data out of your hands.)
 
 ## Table of contents
 1. [Concept](concept.md)
