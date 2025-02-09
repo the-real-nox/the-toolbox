@@ -1,5 +1,5 @@
-# The Toolbox (name not fixed)
-A web-app that can while being self-hosted provide an interface with tools you might come in handy in you life as a engineer.
+# Open-toolbox
+A web-app that can come in handy for daily tasks. Simple. Open-source. Self-hosted.
 
 ## Topics
 - [Structure](synopsis/structure.md)
