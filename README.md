@@ -1,4 +1,4 @@
-# Open-toolbox
+# open-toolbox
 A web-app that can come in handy for daily tasks. Simple. Open-source. Self-hosted.
 
 ## Topics
