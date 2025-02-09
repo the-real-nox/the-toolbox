@@ -1,3 +1,4 @@
 [submodule "RecsTS"]
 	path = RecsTS
-	url = https://github.com/the-real-nox/RecsTS
+	url = https://github.com/the-real-nox/RecsTS.git
+	branch = main
