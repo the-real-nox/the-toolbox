@@ -4,6 +4,6 @@ A web-app that can while being self-hosted provide an interface with tools you m
 ## Topics
 - [Structure](synopsis/structure.md)
 - [Tech-Stack](synopsis/tech-stack.md)
-- [Auth](synopsis/Recs/README.md)
+- [Auth](RecsTS/README.md)
 - [Databases / Storage]()
 - [Plugin-ecosystem](synopsis/plugins.md)
