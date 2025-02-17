@@ -3,7 +3,7 @@ import ViteExpress from "vite-express";
 import { ENV_CONFIG } from "./const.js";
 import "./db.js";
 
-console.log(ENV_CONFIG.POSTGRES.PASSWD);
+console.log(ENV_CONFIG.POSTGRES.PASSWORD);
 
 const app = express();
 

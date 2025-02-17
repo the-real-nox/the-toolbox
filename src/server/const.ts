@@ -5,7 +5,7 @@ class EnvConfig {
     public POSTGRES = {
         HOST: process.env.POSTGRES_HOST,
         USER: process.env.POSTGRES_USER,
-        PASSWD: process.env.POSTGRES_PASSWD,
+        PASSWORD: process.env.POSTGRES_PASSWD,
         DB: process.env.POSTGRES_DB
     }
 
@@ -22,8 +22,8 @@ class EnvConfig {
             throw new Error("Missing postgres-user!");
         }
 
-        this.POSTGRES.PASSWD = process.env.POSTGRES_PASSWD;
-        if (!this.POSTGRES.PASSWD) {
+        this.POSTGRES.PASSWORD = process.env.POSTGERS_PASSWORD;
+        if (!this.POSTGRES.PASSWORD) {
             throw new Error("Missing postgres-password!");
         }
 

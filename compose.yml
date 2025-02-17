@@ -1,0 +1,4 @@
+services:
+  db_postgres:
+    image: postgres
+    env_file: "./.env"
