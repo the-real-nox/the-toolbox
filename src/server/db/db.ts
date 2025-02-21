@@ -13,4 +13,3 @@ const pool = new Pool({
 })
 
 export const DB = drizzle({ client: pool });
-console.log(await DB.execute('select 1'));
