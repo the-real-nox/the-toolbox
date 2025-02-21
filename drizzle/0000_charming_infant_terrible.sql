@@ -1,4 +1,4 @@
-CREATE TYPE "public"."userStatus" AS ENUM('ACTIVE', 'LOCKED', 'UNCONFIRMED', 'INACTIVE');--> statement-breakpoint
+CREATE TYPE "public"."userStatus" AS ENUM('active', 'locked', 'unconfirmed', 'inactive');--> statement-breakpoint
 CREATE TABLE "recs_session" (
 	"id" uuid PRIMARY KEY NOT NULL,
 	"refreshToken" text NOT NULL,

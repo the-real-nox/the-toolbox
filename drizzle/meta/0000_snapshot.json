@@ -1,5 +1,5 @@
 {
-  "id": "9e82f683-e65c-4eff-a0e7-60285f7ee9d5",
+  "id": "d444dae6-eedd-491c-ae20-708d3e43c87d",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -139,10 +139,10 @@
       "name": "userStatus",
       "schema": "public",
       "values": [
-        "ACTIVE",
-        "LOCKED",
-        "UNCONFIRMED",
-        "INACTIVE"
+        "active",
+        "locked",
+        "unconfirmed",
+        "inactive"
       ]
     }
   },
