@@ -2,9 +2,13 @@ import express from "express";
 import ViteExpress from "vite-express";
 import { configRecs } from "recs-js";
 import { DB } from "./db/db.js";
-import { NodePgDatabase } from "drizzle-orm/node-postgres";
+import { authRouter } from "./api/auth.js";
 
 const app = express();
+
+app.use(express.json())
+
+app.use("/auth", authRouter);
 
 configRecs(DB);
 
