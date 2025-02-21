@@ -1,11 +1,12 @@
 import express from "express";
 import ViteExpress from "vite-express";
-import { ENV_CONFIG } from "./const.js";
-import "./db.js";
-
-console.log(ENV_CONFIG.POSTGRES.PASSWORD);
+import { configRecs } from "recs-js";
+import { DB } from "./db/db.js";
+import { NodePgDatabase } from "drizzle-orm/node-postgres";
 
 const app = express();
+
+configRecs(DB);
 
 app.get("/hello", (_, res) => {
   res.send("Hello Vite + React + TypeScript!");

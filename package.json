@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "nodemon -w src/server -x tsx src/server/main.ts",
     "start": "NODE_ENV=production tsx src/server/main.ts",
-    "build": "vite build"
+    "build": "vite build",
+    "db-migrate": "npx drizzle-kit generate && npx drizzle-kit migrate",
+    "db-push": "npx drizzle-kit generate && npx drizzle-kit push"
   },
   "dependencies": {
     "bootstrap": "^5.3.3",

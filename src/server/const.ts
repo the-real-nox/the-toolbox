@@ -2,35 +2,43 @@ import { config } from "dotenv";
 
 class EnvConfig {
 
-    public POSTGRES = {
-        HOST: process.env.POSTGRES_HOST,
-        USER: process.env.POSTGRES_USER,
-        PASSWORD: process.env.POSTGRES_PASSWD,
-        DB: process.env.POSTGRES_DB
-    }
+    public POSTGRES: {
+        HOST: string,
+        USER: string,
+        PASSWORD: string,
+        DB: string,
+        PORT: number,
+    };
 
     constructor() {
         config();
-
-        this.POSTGRES.HOST = process.env.POSTGRES_HOST;
-        if (!this.POSTGRES.HOST) {
+        if (!process.env.POSTGRES_HOST) {
             throw new Error("Missing postgres-host!");
         }
 
-        this.POSTGRES.USER = process.env.POSTGRES_USER;
-        if (!this.POSTGRES.USER) {
+        if (!process.env.POSTGRES_USER) {
             throw new Error("Missing postgres-user!");
         }
 
-        this.POSTGRES.PASSWORD = process.env.POSTGERS_PASSWORD;
-        if (!this.POSTGRES.PASSWORD) {
+        if (!process.env.POSTGRES_PASSWORD) {
             throw new Error("Missing postgres-password!");
         }
 
 
-        this.POSTGRES.DB = process.env.POSTGRES_DB;
-        if (!this.POSTGRES.DB) {
+        if (!process.env.POSTGRES_DB) {
             throw new Error("Missing postgres-db-name!");
+        }
+
+        if (!process.env.POSTGRES_PORT || Number.isNaN(process.env.POSTGRES_PORT)) {
+            throw new Error("Invalid postgres-port!");
+        }
+
+        this.POSTGRES = {
+            HOST: process.env.POSTGRES_HOST!,
+            USER: process.env.POSTGRES_USER!,
+            PASSWORD: process.env.POSTGRES_PASSWORD!,
+            DB: process.env.POSTGRES_DB!,
+            PORT: Number(process.env.POSTGRES_PORT!),
         }
     }
 }
