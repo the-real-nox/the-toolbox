@@ -1,1 +1,1 @@
-export * from "recs-js/db_schema";
+export * from "recs-js/schema";

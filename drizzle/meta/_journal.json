@@ -8,6 +8,13 @@
       "when": 1740177823645,
       "tag": "0000_charming_infant_terrible",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1740233628867,
+      "tag": "0001_heavy_shinko_yamashiro",
+      "breakpoints": true
     }
   ]
 }
