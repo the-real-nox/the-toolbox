@@ -1,5 +1,5 @@
 import { drizzle } from "drizzle-orm/node-postgres";
-import { ENV_CONFIG } from "../const.js";
+import { ENV_CONFIG } from "../config.js";
 import pg from "pg";
 
 const { Pool } = pg;

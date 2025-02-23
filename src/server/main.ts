@@ -2,12 +2,13 @@ import express from "express";
 import ViteExpress from "vite-express";
 import { configRecs } from "recs-js";
 import { DB } from "./db/db.js";
-import { NodePgDatabase } from "drizzle-orm/node-postgres";
 import { apiRouter } from "./api/index.js";
+import { MAILER } from "./config.js";
 
 const app = express();
 
-configRecs(DB);
+
+configRecs(DB, MAILER);
 app.use(express.json())
 
 app.use("/api", apiRouter);

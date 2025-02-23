@@ -2,9 +2,11 @@ import { config } from "dotenv";
 import { Response } from "express";
 import { Result, ValidationError } from "express-validator";
 import { DateTime } from "luxon";
-import { ErrorCode } from "./error.js";
+import { ErrorCode, OpenToolboxError } from "./error.js";
 
 export class EnvConfig {
+
+    public IS_PRODUCTION: boolean;
 
     public POSTGRES: {
         HOST: string,
@@ -14,27 +16,53 @@ export class EnvConfig {
         PORT: number,
     };
 
+    public MAILER: {
+        USER: string,
+        PASSWORD: string,
+        HOST: string,
+        PORT: number,
+    };
+
     constructor() {
         config();
+
+        this.IS_PRODUCTION = process.env.NODE_ENV == "production";
+
         if (!process.env.POSTGRES_HOST) {
-            throw new Error("Missing postgres-host!");
+            throw new OpenToolboxError("CONFIG_ERROR", "Missing postgres-host!");
         }
 
         if (!process.env.POSTGRES_USER) {
-            throw new Error("Missing postgres-user!");
+            throw new OpenToolboxError("CONFIG_ERROR", "Missing postgres-user!");
         }
 
         if (!process.env.POSTGRES_PASSWORD) {
-            throw new Error("Missing postgres-password!");
+            throw new OpenToolboxError("CONFIG_ERROR", "Missing postgres-password!");
         }
 
 
         if (!process.env.POSTGRES_DB) {
-            throw new Error("Missing postgres-db-name!");
+            throw new OpenToolboxError("CONFIG_ERROR", "Missing postgres-db-name!");
         }
 
         if (!process.env.POSTGRES_PORT || Number.isNaN(process.env.POSTGRES_PORT)) {
-            throw new Error("Invalid postgres-port!");
+            throw new OpenToolboxError("CONFIG_ERROR", "Invalid postgres-port!");
+        }
+
+        if (!process.env.MAIL_HOST) {
+            throw new OpenToolboxError("CONFIG_ERROR", "Mail-user is missing!");
+        }
+
+        if (!process.env.MAIL_PORT || Number.isNaN(process.env.MAIL_PORT)) {
+            throw new OpenToolboxError("CONFIG_ERROR", "Mail-user is missing!");
+        }
+
+        if (!process.env.MAIL_USER) {
+            throw new OpenToolboxError("CONFIG_ERROR", "Mail-user is missing!");
+        }
+
+        if (!process.env.MAIL_PASSWORD) {
+            throw new OpenToolboxError("CONFIG_ERROR", "Mail-user is missing!");
         }
 
         this.POSTGRES = {
@@ -43,6 +71,13 @@ export class EnvConfig {
             PASSWORD: process.env.POSTGRES_PASSWORD!,
             DB: process.env.POSTGRES_DB!,
             PORT: Number(process.env.POSTGRES_PORT!),
+        };
+
+        this.MAILER = {
+            HOST: process.env.MAIL_HOST,
+            PORT: Number(process.env.MAIL_PORT),
+            USER: process.env.MAIL_USER,
+            PASSWORD: process.env.MAIL_PASSWORD,
         }
     }
 }
