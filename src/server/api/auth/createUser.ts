@@ -1,15 +1,15 @@
 import { Router } from "express";
 import { body, validationResult } from "express-validator";
 import { Payload } from "../../def.js";
-import { createRecsUser, RecsError, RecsErrorCode } from "recs-js";
+import { createRecsUser, RECS_CONFIG, RecsError, RecsErrorCode } from "recs-js";
 
 
 export const createUserRouter = Router();
 
 createUserRouter.post("/createUser", 
-        body('userName').escape().notEmpty(),
-        body('password').notEmpty(),
-        body('email').escape().notEmpty(),
+        body('userName').custom(v => RECS_CONFIG.validation.username_regex.test(v)).escape().notEmpty(),
+        body('password').custom(v => RECS_CONFIG.validation.password_regex.test(v)).notEmpty(),
+        body('email').isEmail().escape().notEmpty(),
     async (req, res) => {
     
     const errors = validationResult(req);
@@ -18,20 +18,22 @@ createUserRouter.post("/createUser",
     if (!errors.isEmpty()) {
         new Payload(400)
             .success(false)
-            .validationData(errors)
+            .validationData(errors, "INVALID_BODY")
             .build(res);
+        return;
     }
 
     
     try {
         await createRecsUser(req.body.userName, req.body.password, req.body.email);
     } catch (err) {
+
         if (err instanceof RecsError) {
-            if (err.code == RecsErrorCode.USER_EXISTS) {
+            if (err.code == "USER_EXISTS") {
                 new Payload(409)
                     .success(false)
                     .data({
-                        msg: "User already exists!"
+                        code: err.code
                     })
                     .build(res);
                 return;

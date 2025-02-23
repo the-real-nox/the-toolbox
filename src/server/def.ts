@@ -2,6 +2,7 @@ import { config } from "dotenv";
 import { Response } from "express";
 import { Result, ValidationError } from "express-validator";
 import { DateTime } from "luxon";
+import { ErrorCode } from "./error.js";
 
 export class EnvConfig {
 
@@ -60,8 +61,8 @@ export class Payload {
         return this;
     }
 
-    validationData(data: Result<ValidationError>) {
-        this._data = data.formatWith(err => err.msg).mapped();
+    validationData(data: Result<ValidationError>, err_code: ErrorCode) {
+        this._data = { code: err_code, fields: data.formatWith(err => err.msg).mapped() }
         return this;
     }
 

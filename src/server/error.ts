@@ -1,8 +1,8 @@
 import { ValidationError } from "express-validator";
+import { RecsError, RecsErrorCode } from "../../../recs.js/dist/lib/error.js";
 
-export const enum ErrorCode {
-
-}
+export type ErrorCode =
+    "INVALID_BODY";
 
 export class OpenToolboxError extends Error{
     private code: ErrorCode;
