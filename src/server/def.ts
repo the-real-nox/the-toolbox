@@ -23,6 +23,8 @@ export class EnvConfig {
         PORT: number,
     };
 
+    public ACTIVATE_REQUEST_TEMPLATE: string;
+
     constructor() {
         config();
 
@@ -65,6 +67,10 @@ export class EnvConfig {
             throw new OpenToolboxError("CONFIG_ERROR", "Mail-user is missing!");
         }
 
+        if (!process.env.ACTIVATE_REQUEST_TEMPLATE) {
+            throw new OpenToolboxError("CONFIG_ERROR", "Activate-Request-template is missing!")
+        }
+
         this.POSTGRES = {
             HOST: process.env.POSTGRES_HOST!,
             USER: process.env.POSTGRES_USER!,
@@ -79,6 +85,8 @@ export class EnvConfig {
             USER: process.env.MAIL_USER,
             PASSWORD: process.env.MAIL_PASSWORD,
         }
+
+        this.ACTIVATE_REQUEST_TEMPLATE = process.env.ACTIVATE_REQUEST_TEMPLATE;
     }
 }
 

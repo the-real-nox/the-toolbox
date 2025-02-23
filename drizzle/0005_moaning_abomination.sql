@@ -1,0 +1,2 @@
+ALTER TABLE "recs_user_confirmation" ALTER COLUMN "confirmationToken" SET DEFAULT 'KEz0azchXLBpC7BAStuRPXuQ17Dkfsxt-2G9b9l18_0NiFr5QlDUhHOq2pBLDQGXwZW238qbatsA84QjdMiiMbn3jHQXkRCyosx0VeQmHWidfW88UL4WmnYgXa-tbH7c';--> statement-breakpoint
+ALTER TABLE "recs_user_confirmation" ALTER COLUMN "confirmationToken" DROP EXPRESSION;

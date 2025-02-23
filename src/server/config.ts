@@ -1,3 +1,4 @@
+import { RECS_CONFIG } from "../../../recs.js/dist/config.js";
 import { EnvConfig } from "./def.js";
 import { createTransport } from "nodemailer";
 
