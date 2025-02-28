@@ -15,5 +15,5 @@
     "isolatedModules": true,
     "noEmit": true
   },
-  "include": ["src", "src/mikro-orm.config.ts"]
+  "include": ["src"]
 }
