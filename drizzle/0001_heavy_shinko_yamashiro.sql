@@ -1,1 +1,0 @@
-ALTER TABLE "recs_user" DROP CONSTRAINT "recs_user_email_unique";

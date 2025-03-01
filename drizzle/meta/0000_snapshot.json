@@ -1,5 +1,5 @@
 {
-  "id": "d444dae6-eedd-491c-ae20-708d3e43c87d",
+  "id": "e76efc78-e50b-4ed4-9ad3-7511676dc203",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -28,9 +28,10 @@
         },
         "accessTokenCreated": {
           "name": "accessTokenCreated",
-          "type": "date",
+          "type": "timestamp",
           "primaryKey": false,
-          "notNull": true
+          "notNull": true,
+          "default": "now()"
         },
         "ip": {
           "name": "ip",
@@ -40,9 +41,10 @@
         },
         "createdAt": {
           "name": "createdAt",
-          "type": "date",
+          "type": "timestamp",
           "primaryKey": false,
-          "notNull": true
+          "notNull": true,
+          "default": "now()"
         },
         "userId": {
           "name": "userId",
@@ -67,6 +69,60 @@
           "nullsNotDistinct": false,
           "columns": [
             "accessToken"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.recs_user_confirmation": {
+      "name": "recs_user_confirmation",
+      "schema": "",
+      "columns": {
+        "userId": {
+          "name": "userId",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "confirmationToken": {
+          "name": "confirmationToken",
+          "type": "char(128)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "createdAt": {
+          "name": "createdAt",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "recs_user_confirmation_userId_recs_user_id_fk": {
+          "name": "recs_user_confirmation_userId_recs_user_id_fk",
+          "tableFrom": "recs_user_confirmation",
+          "tableTo": "recs_user",
+          "columnsFrom": [
+            "userId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "recs_user_confirmation_confirmationToken_unique": {
+          "name": "recs_user_confirmation_confirmationToken_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "confirmationToken"
           ]
         }
       },
@@ -119,13 +175,6 @@
           "nullsNotDistinct": false,
           "columns": [
             "userName"
-          ]
-        },
-        "recs_user_email_unique": {
-          "name": "recs_user_email_unique",
-          "nullsNotDistinct": false,
-          "columns": [
-            "email"
           ]
         }
       },

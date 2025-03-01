@@ -5,50 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1740177823645,
-      "tag": "0000_charming_infant_terrible",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1740233628867,
-      "tag": "0001_heavy_shinko_yamashiro",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1740307121450,
-      "tag": "0002_public_wolverine",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "7",
-      "when": 1740308042294,
-      "tag": "0003_orange_zuras",
-      "breakpoints": true
-    },
-    {
-      "idx": 4,
-      "version": "7",
-      "when": 1740308576794,
-      "tag": "0004_curly_charles_xavier",
-      "breakpoints": true
-    },
-    {
-      "idx": 5,
-      "version": "7",
-      "when": 1740308645745,
-      "tag": "0005_moaning_abomination",
-      "breakpoints": true
-    },
-    {
-      "idx": 6,
-      "version": "7",
-      "when": 1740309960329,
-      "tag": "0006_closed_anita_blake",
+      "when": 1740836116787,
+      "tag": "0000_puzzling_mindworm",
       "breakpoints": true
     }
   ]

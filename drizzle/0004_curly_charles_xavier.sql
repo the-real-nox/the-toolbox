@@ -1,4 +1,0 @@
-ALTER TABLE "recs_user_confirmation" ALTER COLUMN "confirmationToken" SET DATA TYPE char(128);--> statement-breakpoint
-ALTER TABLE "recs_user_confirmation" drop column "confirmationToken";--> statement-breakpoint
-ALTER TABLE "recs_user_confirmation" ADD COLUMN "confirmationToken" char(128) GENERATED ALWAYS AS (YywLqqCFvCSfnoIAe4p8Sjh3CZTzFHthwDWruWyOblNhS_HdMAbhYI-d3XCzK7ug8aGGiR6uAQNSCD5BzfMTh4is9HH4kfdIv1ZDwhDmeVsv4h_uaDnonJ3Hilmex6kf) STORED NOT NULL;--> statement-breakpoint
-ALTER TABLE "recs_user_confirmation" ADD CONSTRAINT "recs_user_confirmation_confirmationToken_unique" UNIQUE("confirmationToken");

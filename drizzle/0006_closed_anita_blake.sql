@@ -1,1 +1,0 @@
-ALTER TABLE "recs_user_confirmation" ALTER COLUMN "confirmationToken" DROP DEFAULT;
